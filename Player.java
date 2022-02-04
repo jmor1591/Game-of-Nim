@@ -1,6 +1,16 @@
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private int score;
+
+    public Player()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What is your name?: ");
+        this.name = sc.nextLine();
+        System.out.println("Welcome to the game, " + this.name + "!");
+    }
 
     public Player(String name) {
         this.name = name;
@@ -14,7 +24,6 @@ public class Player {
 
     public String getName() {
         return this.name;
-        //test
     }
 
     public int getScore() {
