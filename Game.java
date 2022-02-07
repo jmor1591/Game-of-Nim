@@ -16,8 +16,21 @@ public class Game {
     }
 
     public void advanceTurn() {
+        Player dummy1;
+        Player dummy2;
+        if (turn == 0) {
+            int ran = (int) (Math.random() * 2 + 1);
+            System.out.println("random number: " + ran);
+            if (ran == 2) {
+                dummy1 = player2;
+                player2 = player1;
+                player1 = dummy1; 
+                System.out.println(player1.getName());
+                System.out.println(player2.getName());
+            }
+        }
         turn++;
-        if (turn % 2 == 0) {
+        if (turn % 2 == 1) {
             currentPlayer = player1;
         }
         else {
@@ -36,8 +49,11 @@ public class Game {
 
     public void play() {
         // TODO: program this
+        Board.populate();
+        Board.setMaxGuess();
         while (!finished) {
             Scanner sc = new Scanner(System.in);
+            advanceTurn();
             System.out.println("It is " + currentPlayer.getName() + "'s turn.");
             System.out.println("There are " + Board.getNumPieces() + " remaining.");
             System.out.println("You can remove up to " + Board.getMaxGuess() + " pieces. How many pieces would you like to remove?");
@@ -61,11 +77,28 @@ public class Game {
             }
             advanceTurn();
         }
-        System.out.println(currentPlayer.getName() + " has won this round!" + currentPlayer.getName() + )
+        System.out.println(currentPlayer.getName() + " has won this round! " + currentPlayer.getName() + " will receive 1 point.");
+        currentPlayer.incrScore();
+        if (playAgain()) {
+            play();
+        }
+
+        System.out.println("The game has ended! " + player1.getName() + " has " + player1.getScore() + " points." + player2.getName() + " has " + player2.getScore() + " points.");
     }
 
     private boolean playAgain() {
-        // TODO: program this
-        return true; // placeholder value for now
+        System.out.println("Would you like to play again? Y/N: ");
+        Scanner sc = new Scanner(System.in);
+        String response = sc.nextLine();
+        while (!(response.trim().toUpperCase().equals("Y") || response.trim().toUpperCase().equals("N"))) {
+            System.out.println("Invalid response. Try again. Y/N: ");
+            response = sc.nextLine();
+        }
+        if (response.equals("Y")) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

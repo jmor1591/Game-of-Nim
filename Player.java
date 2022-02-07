@@ -9,7 +9,7 @@ public class Player {
         Scanner sc = new Scanner(System.in);
         System.out.println("What is your name?: ");
         this.name = sc.nextLine();
-        System.out.println("Welcome to the game, " + this.name + "!");
+        System.out.println("Welcome to the game, " + this.name + "!\n");
     }
 
     public Player(String name) {

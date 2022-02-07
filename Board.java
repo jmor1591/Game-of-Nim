@@ -4,6 +4,7 @@ public class Board {
 
     public static void populate() {
         // TODO: program this
+        pieces = (int) (Math.random() * 51 + 10);
     }
 
     //Accessors

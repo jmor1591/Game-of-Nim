@@ -11,7 +11,7 @@ public class GameRunner {
 
         Game nim = new Game();
         // NOTE: uncomment to debug Game.play()
-        // nim.play();
+        nim.play();
 
     }
 }
