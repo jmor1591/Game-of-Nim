@@ -12,9 +12,9 @@ public class Player {
         System.out.println("Welcome to the game, " + this.name + "!\n");
     }
 
-    public Player(String name) {
+    public Player(String name, int score) {
         this.name = name;
-        score = 0;
+        this.score = score;
     }
 
     public int takeTurn() {

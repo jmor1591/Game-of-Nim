@@ -17,12 +17,11 @@ public class Game {
 
     public void advanceTurn() {
         Player dummy1;
-        Player dummy2;
         if (turn == 0) {
             int ran = (int) (Math.random() * 2 + 1);
             System.out.println("random number: " + ran);
             if (ran == 2) {
-                dummy1 = player2;
+                dummy1 = new Player(player2.getName(), player2.getScore());
                 player2 = player1;
                 player1 = dummy1; 
                 System.out.println(player1.getName());
@@ -30,6 +29,7 @@ public class Game {
             }
         }
         turn++;
+        System.out.println(turn);
         if (turn % 2 == 1) {
             currentPlayer = player1;
         }
