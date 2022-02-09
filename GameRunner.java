@@ -12,6 +12,6 @@ public class GameRunner {
         Game nim = new Game();
         // NOTE: uncomment to debug Game.play()
         nim.play();
-
+        System.out.println("The game has ended! " + nim.getPlayerName(1) + " has " + nim.getPlayerScore(1) + " points. " + nim.getPlayerName(2) + " has " + nim.getPlayerScore(2) + " points.");
     }
 }
