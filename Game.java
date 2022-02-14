@@ -6,11 +6,9 @@ public class Game {
     private Player player2;
     private Player currentPlayer;
     private boolean finished;
-    private int robo = 0;
     static int turn = 0;
 
     public Game() {
-        // TODO: program this
         player1 = new Player();
         player2 = new Player();
         finished = false;
@@ -37,33 +35,15 @@ public class Game {
     }
 
     private boolean isValid(int a){
-        if (a <= Board.getMaxGuess()) {
+        if (a <= Board.getMaxGuess() && a > 0) {
             return true;
         }
         else {
             return false;
         }
     }
-
-    public void play() {
-        // TODO: program this
-        if (robo == 0) {
-            Scanner ro = new Scanner(System.in);
-            System.out.println("Would you like to play against a robot?: Y/N");
-            String response = ro.nextLine();
-            while (!(response.trim().toUpperCase().equals("Y") || response.trim().toUpperCase().equals("N"))) {
-                System.out.println("Invalid response. Try again. Y/N: ");
-                response = ro.nextLine();
-            }
     
-            if (response.trim().toUpperCase().equals("Y")) {
-                robo = 1;
-            }
-            else {
-                robo = 2;
-            }
-        }
-
+    public void play() {
         finished = false;
         Board.populate();
         Board.setMaxGuess();
@@ -71,7 +51,7 @@ public class Game {
         while (!finished) {
             Scanner sc = new Scanner(System.in);
             System.out.println("It is " + currentPlayer.getName() + "'s turn.");
-            System.out.println("There are " + Board.getNumPieces() + " remaining.");
+            System.out.println("There are " + Board.getNumPieces() + " piece(s) remaining.");
             System.out.println("You can remove up to " + Board.getMaxGuess() + " pieces. How many pieces would you like to remove?");
             int guess = sc.nextInt();
 

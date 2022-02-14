@@ -16,12 +16,7 @@ public class Player {
         this.name = name;
         this.score = score;
     }
-
-    public int takeTurn() {
-        // TODO: program this
-        return 0; // placeholder value for now
-    }
-
+    
     public String getName() {
         return this.name;
     }

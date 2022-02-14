@@ -3,7 +3,6 @@ public class Board {
     private static int maxGuess;
 
     public static void populate() {
-        // TODO: program this
         pieces = (int) (Math.random() * 51 + 10);
     }
 
